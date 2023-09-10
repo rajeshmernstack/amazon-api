@@ -20,7 +20,7 @@ app.get("/", async (req, res) => {
 
   //   // Navigate to the product page
   await page.goto(productUrl, {timeout: 0});
-  await page.waitForSelector("#productTitle", { timeout: 20000 });
+  await page.waitForSelector("#productTitle", { timeout: 10000 });
 
   const productData = await page.evaluate(() => {
     const title = document.querySelector("#productTitle").innerText.trim();
