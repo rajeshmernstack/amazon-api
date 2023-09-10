@@ -16,10 +16,11 @@ app.get("/", async (req, res) => {
     timeout: process.env.PUPPETEER_TIMEOUT || 60000,
   });
   const page = await browser.newPage();
+  await page.setCacheEnabled(true);
 
   //   // Navigate to the product page
-  await page.goto(productUrl);
-  await page.waitForSelector("#productTitle", { timeout: 30000 });
+  await page.goto(productUrl, {timeout: 0});
+  await page.waitForSelector("#productTitle", { timeout: 20000 });
 
   const productData = await page.evaluate(() => {
     const title = document.querySelector("#productTitle").innerText.trim();
