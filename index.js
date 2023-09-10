@@ -44,6 +44,11 @@ app.get("/", async (req, res) => {
   await browser.close();
   res.json(productData);
 });
+app.get("/status", (req, res) => {
+  res.json({
+    status: true
+  })
+})
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
