@@ -10,7 +10,7 @@ app.get("/", async (req, res) => {
   let productUrl = req.query.url;
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     executablePath: process.env.CHROME_EXECUTABLE_PATH, // Use environment variable
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
     timeout: process.env.PUPPETEER_TIMEOUT || 60000,
